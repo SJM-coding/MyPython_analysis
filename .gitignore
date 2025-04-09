@@ -4,4 +4,5 @@ data/.ipynb_checkpoints/
 img/
 img.html
 *.jpg
+*.png
 .env
