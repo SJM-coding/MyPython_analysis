@@ -8,7 +8,13 @@ import seaborn as sns
 
 data = pd.read_csv('data/data_draw_korea.csv')
 data = data.drop('Unnamed: 0', axis=1)
-plt.rc('font', family="Malgun Gothic")
+# font name을 알고 있다면 생략가능
+#한글폰트 path 설정
+font_path = '/System/Library/AssetsV2/com_apple_MobileAsset_Font7/bad9b4bf17cf1669dde54184ba4431c22dcad27b.asset/AssetData/NanumGothic.ttc'
+#font의 파일정보로 font name 을 알아내기
+font_prop = fm.FontProperties(fname=font_path)
+# 2. 폰트를 matplotlib에 반영
+plt.rcParams['font.family'] = font_prop.get_name()
 
 # 광역시도 이름을 인자로 받아서 인구수와 면적을 그려주는 함수
 def show_pop_area(sido_name):
